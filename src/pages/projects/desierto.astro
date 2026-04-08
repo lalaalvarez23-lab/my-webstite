@@ -107,18 +107,17 @@ const youtubeEmbed = '';
       </div>
     </div>
 
-    <!-- Video embed — shows automatically once youtubeEmbed is filled in -->
-    {youtubeEmbed && (
-      <div class="video-wrap">
-        <iframe
-          src={youtubeEmbed}
-          title="Desierto"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        />
-      </div>
-    )}
+    <!-- Vimeo teaser -->
+    <div class="video-wrap">
+      <iframe
+        src="https://player.vimeo.com/video/1181002075?badge=0&autopause=0&player_id=0&app_id=58479"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        title="TEASER — Desierto"
+      />
+    </div>
 
     <!-- Images -->
     <div class="images">
@@ -138,6 +137,8 @@ const youtubeEmbed = '';
     <span>© 2026 All rights reserved</span>
   </footer>
 </Layout>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <style>
   header {
@@ -167,13 +168,17 @@ const youtubeEmbed = '';
 
   /* ── Video ── */
   .video-wrap {
+    position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    padding-top: 75%; /* 4:3 ratio to match Vimeo embed */
     background: #000;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
   }
 
   .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
   }
